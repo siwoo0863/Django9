@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+북마크 어플리케이션
+{% endblock %}
+{% block content%}
+	<h1>장고 북마크 어플리케이션</h1>
+	<p>메인페이지입니다</p>
+	{# 파이썬 코드 주석 #}
+	<p>뷰 함수에서 전달받은 hello 변수 값 출력 : {{ hello }}</p>
+	<ol>
+	{% for i in list  %}
+		<li> {{ i }} </li>
+	{%endfor %}
+
+<br>
+<form action="{% url 'blog:search' %}" method="GET">
+	{% csrf_token %}
+	<input type="text" name='query'>
+	<input type='submit' value='검색'>
+</form>
+
+{% endblock%}
